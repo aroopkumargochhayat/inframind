@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shopizer-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shopizer
+  template:
+    metadata:
+      labels:
+        app: shopizer
+    spec:
+      containers:
+        - name: shopizer
+          image: aroopkumargochhayat/sample:latest
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 8080
